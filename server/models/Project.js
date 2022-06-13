@@ -9,7 +9,7 @@ const ProjectSchema = new mongoose.Schema({
 	},
 	status: {
 		type: String,
-		enum: ['Not Started', 'in Progress', 'Completed'],
+		enum: ['Not Started', 'In Progress', 'Completed'],
 	},
 	clientId: {
 		type: mongoose.Schema.Types.ObjectId,
@@ -17,4 +17,4 @@ const ProjectSchema = new mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Plient', ProjectSchema);
+module.exports = mongoose.model('Project', ProjectSchema);
