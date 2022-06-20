@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEventHandler, useEffect, useRef, useState } from 'react';
+import React, { ChangeEventHandler, FormEventHandler, useState } from 'react';
 import { Client } from 'types/Client.type';
 
 const statuses = [
@@ -21,9 +21,6 @@ const ProjectForm: React.FC<{
   onSubmit: (data: ProjectDataType) => void
 }> = ({ initialData, onSubmit, clients, actionType= 'Create' }) => {
   const [formData, setFormData] = useState(initialData);
-  const formRef = useRef(null);
-
-  // useEffect(() => setFormData(initialData), [])
 
   const onChangeInputHandler: ChangeEventHandler<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = ({ target }) => {
     const { name, value } = target;
@@ -39,7 +36,7 @@ const ProjectForm: React.FC<{
     onSubmit(formData);
   }
 
-  return <form onSubmit={onSubmitHandler} ref={formRef}>
+  return <form onSubmit={onSubmitHandler}>
     <div className="mb-3">
       <label className="form-label">Name</label>
       <input
